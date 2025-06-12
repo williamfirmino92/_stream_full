@@ -12,7 +12,12 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'fallback-secret-key')
 DEBUG = False
 
 # Domínios permitidos (substitua pelo seu domínio no Render)
-ALLOWED_HOSTS = ['stream-full.onrender.com/']
+ALLOWED_HOSTS = ["stream-full.onrender.com", "www.stream-full.onrender.com", "localhost", "127.0.0.1"]
+
+USE_X_FORWARDED_HOST = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+
 
 # Aplicações instaladas
 INSTALLED_APPS = [
