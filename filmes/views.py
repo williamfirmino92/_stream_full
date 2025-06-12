@@ -84,8 +84,8 @@ def filmesdetalhes4(request):
 #         'filmes/filme_detalhe.html',
 #     )
 
-# def filmes(request):
-#     return render(
-#         request,
-#         'filmes/filmes.html',
-#     )
+def filmespagina(request):
+    return render(
+        request,
+        'filmes/filmes.html',
+    )

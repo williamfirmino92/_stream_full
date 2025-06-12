@@ -5,6 +5,7 @@ urlpatterns = [
     path('cadastrar/', views.cadastrarFilme, name='cadastrarfilme'),
     path('listar/', views.listarFilmes, name='listarfilmes'),
     path('filmes/', views.filmes, name='filmes'),
+    path('filmespagina/', views.filmespagina, name='filmespagina'),
     path('filmes/<int:foto_id>', views.filmes, name='filmes'),
     path('filmesdetalhes/', views.filmesdetalhes, name='filmesdetalhes'),
     path('filmesdetalhes2/', views.filmesdetalhes2, name='filmesdetalhes2'),
