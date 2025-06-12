@@ -1,0 +1,49 @@
+/* Estilização do Header */
+.navbar{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #1a1a1d;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    padding: 1rem 2rem;
+}
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #b00610;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+.nav-links li a {
+    font-weight: 600;
+    color: #ccc;
+    text-decoration: none;
+}
+.nav-links li a:hover {
+    color: #fff;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.search-input {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    border: none;
+    background-color: #2c2c31;
+    color: white;
+    transition: transform 0.3s cubic-bezier(.7, 1.7, .7, 1);
+}
+
+.search-input:hover{
+ transform: scale(1.03);
+}

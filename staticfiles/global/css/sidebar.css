@@ -1,0 +1,210 @@
+/* =================================== */
+/*            PROFILE SIDEBAR          */
+/* =================================== */
+
+.profile-sidebar {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: calc(95vw - 64px);
+    height: calc(90vh - 72px);
+    margin: var(--space-xxl) var(--space-xxd) var(--space-xxxl) var(--space-xxl);
+    padding: 0 var(--space-lg);
+    box-sizing: border-box;
+    transition: transform 0.3s cubic-bezier(.7, 1.7, .7, 1);
+}
+
+.profile-sidebar:hover {
+    transform: scale(1.03);
+}
+
+.profile-sidebar-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+    height: calc(90vh - 74px);
+    margin: 0 var(--space-xxl) var(--space-xxxl) 0;
+    padding: var(--space-xxxl) var(--space-lg);
+    background: var(--color-bg-component);
+    border-radius: var(--radius-xl);
+    opacity: 0.9;
+    overflow-y: auto; 
+    overflow-x: hidden;
+}
+
+/* ========== PROFILE IMAGE ========== */
+
+.profile-sidebar-image {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 0 var(--space-md);
+    margin-bottom: var(--space-xl);
+    overflow: visible;
+}
+
+.profile-sidebar-image img {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid var(--color-primary);
+    transform: scale(0.85);
+    opacity: 0.7;
+    box-shadow: none;
+    transition:
+        box-shadow 0.7s cubic-bezier(.7, 1.7, .7, 1),
+        border-color 0.7s cubic-bezier(.7, 1.7, .7, 1),
+        transform 0.7s cubic-bezier(.7, 1.7, .7, 1),
+        opacity 0.7s cubic-bezier(.7, 1.7, .7, 1);
+}
+
+.edit-photo-label:hover ~ img {
+    box-shadow: 0 0 0 8px #b0080f66, 0 0 16px 0 #ff4d4d33;
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* ========== EDIT PHOTO BUTTON ========== */
+
+.edit-photo-label {
+    position: absolute;
+    bottom: var(--space-xxl);
+    right: var(--space-xxl);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-primary);
+    border-radius: 50%;
+    box-shadow: var(--shadow-lg);
+    cursor: pointer;
+    border: none;
+    transition: background 0.2s, transform 0.2s;
+    z-index: 2;
+    overflow: visible;
+}
+
+.edit-photo-label:hover {
+    background: #b0080f;
+    transform: scale(1.15);
+}
+
+.edit-photo-label i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    font-size: 18px;
+    color: #fff;
+    pointer-events: none;
+}
+
+/* Icon states */
+
+.edit-photo-label .icon-camera,
+.edit-photo-label .icon-upload {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: #fff;
+    pointer-events: none;
+    transition: transform 0.4s cubic-bezier(.7, 1.7, .7, 1), opacity 0.3s;
+}
+
+.icon-camera {
+    opacity: 1;
+    transform: translateY(0);
+    z-index: 2;
+}
+
+.icon-upload {
+    opacity: 0;
+    transform: translateY(40px);
+    z-index: 1;
+}
+
+.edit-photo-label:hover .icon-camera {
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.edit-photo-label:hover .icon-upload {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Circular Border Animation */
+
+.circle-border {
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    width: 48px;
+    height: 48px;
+    pointer-events: none;
+    z-index: 3;
+}
+
+.circle-border circle {
+    stroke: #fff;
+    stroke-width: 4;
+    fill: none;
+    stroke-dasharray: 150;
+    stroke-dashoffset: 150;
+    transition: stroke-dashoffset 0.7s cubic-bezier(.7, 1.7, .7, 1);
+}
+
+.edit-photo-label:hover .circle-border circle {
+    stroke-dashoffset: 0;
+}
+
+
+/* ========== PROFILE FORM ========== */
+
+.profile-sidebar-data {
+    width: 100%;
+}
+
+.profile-sidebar-data label {
+    display: block;
+    margin-bottom: var(--space-xs);
+    color: var(--color-text-secondary);
+    font-size: 14px;
+}
+
+.profile-sidebar-data input,
+.profile-sidebar-data-aboutme textarea {
+    width: 100%;
+    background: #222;
+    color: #fff;
+    border: none;
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-base);
+    box-sizing: border-box;
+}
+
+.profile-sidebar-data input {
+    padding: var(--space-sm);
+    margin-bottom: var(--space-md);
+}
+
+.profile-sidebar-data-aboutme textarea {
+    padding: var(--space-md);
+    margin-bottom: var(--space-md);
+    resize: none;
+    min-height: 100px;
+    outline: none;
+}
