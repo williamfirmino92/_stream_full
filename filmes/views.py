@@ -45,7 +45,25 @@ def filmesdetalhes(request):
         request,
         'filmes/filmes_detalhes_premonicao.html',
     )
+    
+def filmesdetalhes2(request):
+    return render(
+        request,
+        'filmes/filmes_detalhes_titanic.html',
+    )
 
+
+def filmesdetalhes3(request):
+    return render(
+        request,
+        'filmes/filmes_detalhes_divertida.html',
+    )
+    
+def filmesdetalhes4(request):
+    return render(
+        request,
+        'filmes/filmes_detalhes_click.html',
+    )
 # view ref a opção de buscar filmes:
 # def buscar(request):
 #     filmes = Filme.objects.order_by('data_cadastro').filter(publicada=True)
