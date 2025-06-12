@@ -1,0 +1,11 @@
+services:
+  - type: web  
+    name: tostreamvibe  
+    env: python
+    buildCommand: ""
+    startCommand: gunicorn transfero.wsgi
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: transfero.settings
+      - key: PYTHON_VERSION
+        value: 3.10

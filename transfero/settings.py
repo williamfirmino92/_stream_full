@@ -1,22 +1,19 @@
-from pathlib import Path, os
+from pathlib import Path
+import os
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+# Caminho base do projeto
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
+# Segurança
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'fallback-secret-key')
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-p0a*r41y0lg#da3lm40qfo@*)(^5iujy527bi94lnqz%ahn1%6'
+# Desliga o debug para produção
+DEBUG = False
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# Domínios permitidos (substitua pelo seu domínio no Render)
+ALLOWED_HOSTS = ['tostreamvibe.onrender.com']
 
-ALLOWED_HOSTS = []
-
-
-# Application definition
-
+# Aplicações instaladas
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -29,6 +26,7 @@ INSTALLED_APPS = [
     'usuarios',
 ]
 
+# Middlewares
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -39,8 +37,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+# URLs principais
 ROOT_URLCONF = 'transfero.urls'
 
+# Templates
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -57,23 +57,22 @@ TEMPLATES = [
     },
 ]
 
+# WSGI
 WSGI_APPLICATION = 'transfero.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/5.1/ref/settings/#databases
-
+# Banco de dados (PostgreSQL recomendado para produção)
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv('POSTGRES_DB'),
+        'USER': os.getenv('POSTGRES_USER'),
+        'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
+        'HOST': os.getenv('POSTGRES_HOST'),
+        'PORT': os.getenv('POSTGRES_PORT', '5432'),
     }
 }
 
-
-# Password validation
-# https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
-
+# Validação de senhas
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -89,37 +88,24 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
-# Internationalization
-# https://docs.djangoproject.com/en/5.1/topics/i18n/
-
+# Internacionalização
 LANGUAGE_CODE = 'pt-br'
-
-TIME_ZONE = 'America/SAO_PAULO'
-
+TIME_ZONE = 'America/Sao_Paulo'
 USE_I18N = True
-
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.1/howto/static-files/
-
-
-
-
-STATIC_URL = 'static/'
+# Arquivos estáticos (CSS, JS, imagens)
+STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'base_static')
+    os.path.join(BASE_DIR, 'base_static'),
 ]
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-MEDIA_URL = "/media/"
+# Arquivos de mídia (uploads)
+MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
-
+# Tipo padrão da chave primária
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
