@@ -1,5 +1,6 @@
 from pathlib import Path
 import os
+import dj_database_url  # <-- adicione isso para ler DATABASE_URL
 
 # Caminho base do projeto
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -60,17 +61,18 @@ TEMPLATES = [
 # WSGI
 WSGI_APPLICATION = 'transfero.wsgi.application'
 
-# Banco de dados (PostgreSQL recomendado para produção)
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('POSTGRES_DB'),
-        'USER': os.getenv('POSTGRES_USER'),
-        'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
-        'HOST': os.getenv('POSTGRES_HOST'),
-        'PORT': os.getenv('POSTGRES_PORT', '5432'),
+# Banco de dados (detecta automaticamente ambiente local ou produção)
+if os.getenv('DATABASE_URL'):
+    DATABASES = {
+        'default': dj_database_url.config(conn_max_age=600)
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 # Validação de senhas
 AUTH_PASSWORD_VALIDATORS = [
