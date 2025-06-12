@@ -1,0 +1,25 @@
+/* ======================== */
+/*     ÁREA PRINCIPAL       */
+/* ======================== */
+.profile-principal {
+    background: rgba(44, 44, 49, 0.9);
+    padding: 15px var(--space-xxl);
+    border-radius: var(--radius-xl);
+    width: 100%;
+    max-width: 100vw;
+    height: calc(90vh - 74px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: auto;
+    box-sizing: border-box;
+    margin-bottom: 40px;
+    transition: background 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+
+.profile-principal:hover {
+    background: rgba(44, 44, 49, 1);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+    transform: scale(1.03);
+    transition: background 0.3s, box-shadow 0.3s, transform 0.3s;
+}

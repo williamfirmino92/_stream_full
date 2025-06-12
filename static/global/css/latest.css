@@ -1,0 +1,74 @@
+/* ======================== */
+/*   FILMES MAIS RECENTES   */
+/* ======================== */
+.profile-principal-latest {
+    width: 100%;
+    margin-top: var(--space-md);
+    background: #222;
+    border-radius: var(--radius-lg);
+    padding: var(--space-md) var(--space-lg);
+    box-shadow: var(--shadow-md);
+    transition: transform 0.3s cubic-bezier(.7, 1.7, .7, 1);
+}
+
+.profile-principal-latest:hover {
+    transform: scale(1.03);
+}
+
+.profile-principal-latest h3 {
+    margin-bottom: var(--space-xl);
+    color: var(--color-text-main);
+    font-size: var(--font-size-xl);
+}
+
+.profile-principal-latest-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-lg);
+    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
+    transition: transform 0.3s cubic-bezier(.7, 1.7, .7, 1);
+}
+
+.profile-principal-latest-cards:hover {
+    transform: scale(1.03);
+}
+
+.profile-principal-latest-item {
+    border-radius: var(--radius-md);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 0;
+    box-sizing: border-box;
+    transition: transform 0.3s cubic-bezier(.7, 1.7, .7, 1);
+}
+
+.profile-principal-latest-item:hover {
+    transform: scale(1.03);
+}
+
+.latest-movie-poster {
+    width: 180px;
+    height: 260px;
+    border-radius: var(--radius-sm);
+    object-fit: cover;
+    margin-bottom: var(--space-md);
+    border: none;
+}
+
+.latest-movie-stars {
+    display: flex;
+    gap: 2px;
+    margin-bottom: var(--space-sm);
+    max-width: 90px;
+    overflow: hidden;
+    justify-content: center;
+}
+
+.latest-movie-stars img {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+}

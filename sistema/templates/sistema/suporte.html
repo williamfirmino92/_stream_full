@@ -1,0 +1,180 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StreamVibe</title>
+  <link rel="stylesheet" href="{% static '/global/css/style.css' %}">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-black text-white font-sans">
+  <!-- Header -->
+  <header class="flex items-center justify-between p-4 bg-black text-white flex-wrap">
+    <div class="flex items-center justify-between w-full md:w-auto">
+      <a href="/index.html">
+        <img src="{% static '/global/assets/images/logo-white.png' %}" alt="Logo da StreamBox" class="h-10">
+      </a>
+      <button id="menu-toggle" class="text-white md:hidden">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+
+    <nav id="mobile-menu" class="w-full md:flex md:items-center md:w-auto hidden">
+      <ul class="flex flex-col md:flex-row md:space-x-6 mt-4 md:mt-0">
+        <li><a href="{% url 'index' %}" class="hover:text-red-500">Home</a></li>
+        <li><a href="{% url 'filmes' %}" class="hover:text-red-500">Filmes</a></li>
+        <li><a href="{% url 'suporte' %}" class="hover:text-red-500">Suporte</a></li>
+        <li><a href="{% url 'perfil' %}" class="hover:text-red-500">Meu perfil</a></li>
+      </ul>
+    </nav>
+
+    <div class="flex items-center space-x-3 mt-4 md:mt-0">
+      <input type="text" placeholder="Buscar..." class="hidden md:block px-2 py-1 rounded bg-gray-800">
+      <a href="{% url 'login' %}">
+        <!-- Ícone de login -->
+        <svg width="24" height="24" fill="none" stroke="white" viewBox="0 0 24 24">
+          <path d="M18 7.5v6m3-3h-6M12.75 6.375A3.375 3.375 0 1 1 6 6.375 3.375 3.375 0 0 1 12.75 6.375ZM3 19.125c0-3.52 2.854-6.375 6.375-6.375S15.75 15.605 15.75 19.125c-1.861 1.121-4.042 1.875-6.375 1.875S4.861 20.246 3 19.125Z"
+            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </a>
+      <a href="{% url 'logout' %}">
+        <!-- Ícone de logout -->
+        <svg width="24" height="24" fill="none" stroke="white" viewBox="0 0 24 24">
+          <path d="M15 3h6v18h-6M10 17l5-5-5-5M3 12h12" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="bg-cover bg-center text-center py-32 relative"
+    style="background-image: linear-gradient(rgb(0, 0, 0), rgba(0, 0, 0, 0.882)), url('hero-bg.jpg');">
+    <div class="container mx-auto px-6">
+      <h1 class="text-3xl sm:text-4xl font-bold mb-6">Estamos sempre abertos para ajudar</h1>
+      <p class="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto mb-8">
+        O StreamVibe é a melhor experiência de streaming para assistir aos seus filmes e programas favoritos sob demanda,
+        a qualquer hora e em qualquer lugar. Cadastre-se agora e aproveite os benefícios exclusivos.
+      </p>
+      <a href="#" class="bg-red-600 hover:bg-red-700 px-6 py-3 rounded-full text-lg font-medium">Enviar uma mensagem</a>
+    </div>
+  </section>
+
+  <!-- Dispositivos -->
+  <section class="bg-black px-4 sm:px-10 py-12 sm:py-20">
+    <h2 class="text-xl sm:text-2xl font-semibold mb-4">Assista onde quiser</h2>
+    <p class="text-gray-400 mb-10 max-w-xl">
+      O StreamVibe é compatível com diversos dispositivos: Smart TVs, smartphones, tablets, laptops e muito mais.
+    </p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="bg-gradient-to-br from-red-900 to-black p-4 rounded">
+        <h3 class="font-semibold text-lg mb-2">Smartphones</h3>
+        <p class="text-sm text-gray-300">Disponível para Android e iOS.</p>
+      </div>
+      <div class="bg-gradient-to-br from-red-900 to-black p-4 rounded">
+        <h3 class="font-semibold text-lg mb-2">Smart TVs</h3>
+        <p class="text-sm text-gray-300">Compatível com principais marcas.</p>
+      </div>
+      <div class="bg-gradient-to-br from-red-900 to-black p-4 rounded">
+        <h3 class="font-semibold text-lg mb-2">Consoles</h3>
+        <p class="text-sm text-gray-300">PlayStation, Xbox e outros.</p>
+      </div>
+      <div class="bg-gradient-to-br from-red-900 to-black p-4 rounded">
+        <h3 class="font-semibold text-lg mb-2">Laptops</h3>
+        <p class="text-sm text-gray-300">Acesse pelo navegador ou app.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="px-4 sm:px-10 py-12 sm:py-20 bg-black">
+    <div class="flex flex-col sm:flex-row sm:justify-between items-center mb-10">
+      <h2 class="text-xl sm:text-2xl font-semibold">Perguntas frequentes</h2>
+      <a href="#" class="bg-red-600 hover:bg-red-700 px-4 py-2 rounded-full mt-4 sm:mt-0">Faça uma pergunta</a>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div>
+        <p class="mb-2 text-red-400 font-semibold">01</p>
+        <h3 class="font-medium text-lg mb-2">O que é o StreamVibe?</h3>
+        <p class="text-gray-400 text-sm">Uma plataforma digital com ampla variedade de filmes e séries sob demanda.</p>
+      </div>
+      <div>
+        <p class="mb-2 text-red-400 font-semibold">02</p>
+        <h3 class="font-medium text-lg mb-2">Quanto custa o StreamVibe?</h3>
+        <p class="text-gray-400 text-sm">Planos mensais e anuais a partir de R$ 19,90/mês.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black text-white py-8 px-4 sm:px-10">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-6">
+      <div>
+        <p class="font-semibold mb-2">Home</p>
+        <ul class="text-sm text-gray-400 space-y-1">
+          <li>Categorias</li>
+          <li>Dispositivos</li>
+          <li>Preços</li>
+          <li>FAQ</li>
+        </ul>
+      </div>
+      <div>
+        <p class="font-semibold mb-2">Filmes</p>
+        <ul class="text-sm text-gray-400 space-y-1">
+          <li>Gêneros</li>
+          <li>Em Alta</li>
+          <li>Lançamentos</li>
+          <li>Populares</li>
+        </ul>
+      </div>
+      <div>
+        <p class="font-semibold mb-2">Séries</p>
+        <ul class="text-sm text-gray-400 space-y-1">
+          <li>Gêneros</li>
+          <li>Em Alta</li>
+          <li>Lançamentos</li>
+          <li>Populares</li>
+        </ul>
+      </div>
+      <div>
+        <p class="font-semibold mb-2">Suporte</p>
+        <ul class="text-sm text-gray-400 space-y-1">
+          <li>Fale Conosco</li>
+        </ul>
+      </div>
+      <div>
+        <p class="font-semibold mb-2">Assinatura</p>
+        <ul class="text-sm text-gray-400 space-y-1">
+          <li>Planos</li>
+          <li>Funcionalidades</li>
+        </ul>
+      </div>
+      <div>
+        <p class="font-semibold mb-2">Redes sociais</p>
+        <ul class="text-sm text-gray-400 space-y-1">
+          <li>Instagram</li>
+          <li>Twitter</li>
+          <li>YouTube</li>
+        </ul>
+      </div>
+    </div>
+    <p class="text-sm text-center text-gray-500">©2025 StreamVibe, Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- Script para menu mobile -->
+  <script>
+    const toggleBtn = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    toggleBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+</body>
+
+</html>

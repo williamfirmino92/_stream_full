@@ -1,0 +1,306 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+ <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StreamVibe</title>
+  <link rel="shortcut icon" href="assets/flaticon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="{% static '/global/css/style.css' %}">
+  <link rel="stylesheet" href="{% static '/global/css/main.css' %}">
+
+  <link
+   rel="stylesheet"
+   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+  />
+ </head>
+ <body>
+   <header class="navbar">
+    <div class="logo">
+      <a href="{% url 'index' %}">
+        <img src="{% static '/global/assets/images/logo-white.png' %}" alt="Logo da StreamBox">
+      </a>
+    </div>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'filmes' %}">Filmes</a></li>
+            <li><a href="{% url 'suporte' %}">Suporte</a></li>
+            <li><a href="{% url 'perfil' %}">Meu perfil</a></li>
+          </ul>
+        </nav>
+
+   <div class="nav-actions">
+    <input type="text" placeholder="Buscar..." class="search-input" />
+    <button class="button-ava"><i class="fa-solid fa-clapperboard"></i>Avaliar Filme</button>
+   </div>
+  </header>
+
+  <main>
+   <!-- SIDEBAR COM A FOTO, NOME E EMAIL-->
+   <div class="profile-sidebar">
+    <div class="profile-content-flex fade-in">
+     <div class="profile-sidebar-content">
+      <div class="profile-sidebar-image">
+       <label class="edit-photo-label" title="Trocar foto de perfil">
+        <span class="circle-border">
+         <svg width="48" height="48">
+          <circle cx="24" cy="24" r="20" />
+         </svg>
+        </span>
+        <i class="fa-solid fa-camera icon-camera" aria-hidden="true"></i>
+        <i class="fa-solid fa-upload icon-upload" aria-hidden="true"></i>
+        <input
+         type="file"
+         name="editarFoto"
+         id="editarFoto"
+         style="display: none"
+         accept="image/*"
+        />
+       </label>
+
+       <img src="{% static '/global/assets/images/atriz.png' %}" alt="Logo da StreamBox">
+
+      </div>
+
+      <div class="profile-sidebar-data">
+       <div class="profile-sidebar-data-nome">
+        <label for="userName">Nome</label>
+        <input type="text" name="userName" value="Satoshi Nakamoto"  />
+        <!-- disabled porque o usuário não pode alterar até clicar em algo -->
+       </div>
+
+       <div class="profile-sidebar-data-aboutme">
+        <label for="aboutMe">Sobre Mim</label>
+        <textarea name="aboutMe" id="aboutMe" rows="5" >
+Sou cinéfilo desde que nasci praticamente, meus pais me faziam maratonar Star Wars, Loucademia de Polícia e afins. Sendo assim, essa paixão se mantém desde meu berço. Gosto de Ação, Comédia e Sci-Fi e estou aqui para contribuir com a comunidade.</textarea
+        >
+       </div>
+
+       <div class="profile-sidebar-data-input">
+        <label for="email">Email</label>
+        <input type="email" name="email" value="satoshi@bitcoin.com"  />
+        <!-- disabled porque o usuário não pode alterar até clicar em algo -->
+       </div>
+
+       <!-- Botão Salvar Alterações -->
+       <button class="btn-salvar-alteracoes" type="button">Salvar Alterações</button>
+
+       <!-- Botão Desconectar -->
+       <button class="btn-desconectar" type="button">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        Desconectar
+       </button>
+      </div>
+     </div>
+
+     <div class="profile-principal">
+      <div class="profile-principal-wallet">
+       <div class="wallet-balance-container">
+        <h3>Seu Saldo</h3>
+
+        <div class="wallet-balance-inner">
+         <i class="fa-solid fa-piggy-bank wallet-icon"></i>
+         <span class="wallet-balance">1.00000004 VIBECOINS</span>
+         <svg class="circle-border" width="48" height="48">
+          <circle cx="24" cy="24" r="22"></circle>
+         </svg>
+        </div>
+
+       </div>
+      </div>
+
+      <div class="profile-principal-stats">
+       <h3>Dados</h3>
+       <div class="profile-principal-stats-cards">
+        <div class="profile-principal-stats-item">
+         <i class="fa-solid fa-comments stats-icon"></i>
+         <div class="stats-texts">
+          <span class="stats-value">10</span>
+          <span class="stats-label">Comentários</span>
+         </div>
+        </div>
+        <div class="profile-principal-stats-item">
+         <i class="fa-solid fa-star stats-icon"></i>
+         <div class="stats-texts">
+          <span class="stats-value">10</span>
+          <span class="stats-label">Filmes Avaliados</span>
+         </div>
+        </div>
+        <div class="profile-principal-stats-item">
+         <i class="fa-solid fa-film stats-icon"></i>
+         <div class="stats-texts">
+          <span class="stats-value">10</span>
+          <span class="stats-label">Filmes Adicionados</span>
+         </div>
+        </div>
+       </div>
+      </div>
+
+      <div class="profile-principal-latest">
+       <h3>Avaliações Recentes</h3>
+       <div class="profile-principal-latest-cards">
+        <!-- Filmes já existentes -->
+        <div class="profile-principal-latest-item">
+
+         <img src="{% static '/global/assets/posters/godfather.jpg' %}" alt="Poster" class="latest-movie-poster"/>
+
+         <div class="latest-movie-stars">
+          <img src="{% static '/global/assets/svg/star-rating.svg' %}" alt="Rating Star" class="latest-movie-poster"/>
+          <img src="{% static '/global/assets/svg/star-rating.svg' %}" alt="Rating Star" class="latest-movie-poster"/>
+          <img src="{% static '/global/assets/svg/star-rating.svg' %}" alt="Rating Star" class="latest-movie-poster"/>
+          <img src="{% static '/global/assets/svg/star-rating.svg' %}" alt="Rating Star" class="latest-movie-poster"/>
+          <img src="{% static '/global/assets/svg/star-rating.svg' %}" alt="Rating Star" class="latest-movie-poster"/>
+
+         </div>
+        </div>
+        <div class="profile-principal-latest-item">
+         <img src="{% static '/global/assets/posters/godfather_2.jpg' %}" alt="Poster" class="latest-movie-poster"/>
+            <div class="latest-movie-stars">
+              <img src="{% static '/global/assets/svg/star-rating.svg' %}" alt="Rating Star" class="latest-movie-poster"/>
+              <img src="{% static '/global/assets/svg/star-rating.svg' %}" alt="Rating Star" class="latest-movie-poster"/>
+              <img src="{% static '/global/assets/svg/star-rating.svg' %}" alt="Rating Star" class="latest-movie-poster"/>
+              <img src="{% static '/global/assets/svg/star-rating.svg' %}" alt="Rating Star" class="latest-movie-poster"/>
+
+         </div>
+        </div>
+        <div class="profile-principal-latest-item">
+          <img src="{% static '/global/assets/posters/click.jpg' %}" alt="Poster" class="latest-movie-poster"/>
+
+   
+         <div class="latest-movie-stars">
+          <img src="{% static '/global/assets/svg/star-rating.svg' %}" alt="Rating Star" class="latest-movie-poster"/>
+          <img src="{% static '/global/assets/svg/star-rating.svg' %}" alt="Rating Star" class="latest-movie-poster"/>
+          <img src="{% static '/global/assets/svg/star-rating.svg' %}" alt="Rating Star" class="latest-movie-poster"/>
+
+         </div>
+        </div>
+        <!-- Novos filmes adicionados -->
+        <div class="profile-principal-latest-item">
+     
+         <img src="{% static '/global/assets/posters/pixels.jpg' %}" alt="Poster" class="latest-movie-poster"/>
+         <div class="latest-movie-stars">
+          <img src="{% static '/global/assets/svg/star-rating.svg' %}" alt="Rating Star" class="latest-movie-poster"/>
+          <img src="{% static '/global/assets/svg/star-rating.svg' %}" alt="Rating Star" class="latest-movie-poster"/>
+          <img src="{% static '/global/assets/svg/star-rating.svg' %}" alt="Rating Star" class="latest-movie-poster"/>
+
+         </div>
+        </div>
+        <div class="profile-principal-latest-item">
+
+         <img src="{% static '/global/assets/posters/dragonball_evolution.jpg' %}" alt="Poster" class="latest-movie-poster"/>
+         <div class="latest-movie-stars">
+          <img src="{% static '/global/assets/svg/star-rating.svg' %}" alt="Rating Star" class="latest-movie-poster"/>
+          <img src="{% static '/global/assets/svg/star-rating.svg' %}" alt="Rating Star" class="latest-movie-poster"/>
+
+         </div>
+        </div>
+        <div class="profile-principal-latest-item">
+
+         <img src="{% static '/global/assets/posters/super_herois_o_filme.jpg' %}" alt="Poster" class="latest-movie-poster"/>
+
+         <div class="latest-movie-stars">
+          <img src="{% static '/global/assets/svg/star-rating.svg' %}" alt="Rating Star" class="latest-movie-poster"/>
+          <img src="{% static '/global/assets/svg/star-rating.svg' %}" alt="Rating Star" class="latest-movie-poster"/>
+
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </main>
+
+  <footer>
+    <div class="footer">
+      <div class="footer-section">
+        <p class="section-title">Home</p>
+        <ul class="section-list">
+          <li>Categorias</li>
+          <li>Dispositivos</li>
+          <li>Preços</li>
+          <li>FAQ</li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <p class="section-title">Filmes</p>
+        <ul class="section-list">
+          <li>Gêneros</li>
+          <li>Em Alta</li>
+          <li>Lançamentos</li>
+          <li>Populares</li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <p class="section-title">Séries</p>
+        <ul class="section-list">
+          <li>Gêneros</li>
+          <li>Em Alta</li>
+          <li>Lançamentos</li>
+          <li>Populares</li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <p class="section-title">Suporte</p>
+        <ul class="section-list">
+          <li>Fale Conosco</li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <p class="section-title">Assinatura</p>
+        <ul class="section-list">
+          <li>Planos</li>
+          <li>Funcionalidades</li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <p class="section-title">Conecte-se Conosco</p>
+        <div class="social-icons">
+          <button class="social-btn">
+            <!-- Facebook -->
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M24 12C24 5.37 18.63 0 12 0S0 5.37 0 12c0 5.99 4.39 10.95 10.13 11.85v-8.39H7.08v-3.47h3.05V9.36c0-3.01 1.79-4.67 4.52-4.67 1.31 0 2.68.23 2.68.23v2.95h-1.51c-1.49 0-1.95.93-1.95 1.88v2.25h3.32l-.53 3.47h-2.79v8.39C19.61 22.95 24 17.99 24 12Z"
+                fill="white" />
+            </svg>
+          </button>
+          <button class="social-btn">
+            <!-- Twitter -->
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M7.55 21.75c9.05 0 14-7.5 14-14 0-.21 0-.42-.01-.63A10.06 10.06 0 0 0 24 4.56a9.82 9.82 0 0 1-2.83.78A4.93 4.93 0 0 0 23.34 2.6a9.86 9.86 0 0 1-3.13 1.2 4.92 4.92 0 0 0-8.38 4.48A13.95 13.95 0 0 1 1.67 3.15a4.92 4.92 0 0 0 1.52 6.57A4.91 4.91 0 0 1 .96 9.1v.06a4.93 4.93 0 0 0 3.95 4.82 4.93 4.93 0 0 1-2.22.08 4.93 4.93 0 0 0 4.6 3.42A9.87 9.87 0 0 1 0 19.54a13.94 13.94 0 0 0 7.55 2.21Z"
+                fill="white" />
+            </svg>
+          </button>
+          <button class="social-btn">
+            <!-- LinkedIn -->
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M22.22 0H1.77A1.77 1.77 0 0 0 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45A1.77 1.77 0 0 0 24 22.27V1.73A1.77 1.77 0 0 0 22.22 0ZM7.12 20.45H3.56V9h3.56v11.45ZM5.34 7.43A2.06 2.06 0 1 1 5.34 3.3a2.06 2.06 0 0 1 0 4.13ZM20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.83-3.04-1.83 0-2.11 1.43-2.11 2.93v5.68H9.36V9h3.42v1.56h.05c.47-.89 1.63-1.83 3.35-1.83 3.58 0 4.27 2.35 4.27 5.4v6.32Z"
+                fill="white" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>@2025 stream, Todos os direitos reservados.</p>
+      <ul class="footer-links">
+        <li>Termos de Uso</li>
+        <li>Política de Privacidade</li>
+        <li>Política de Cookies</li>
+      </ul>
+    </div>
+  </footer>
+
+   
+ </body>
+</html>

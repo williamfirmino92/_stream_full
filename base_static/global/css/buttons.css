@@ -1,0 +1,70 @@
+/* ======================== */
+/*         BOTÕES           */
+/* ======================== */
+.btn-salvar-alteracoes {
+ width: 100%;
+ padding: var(--space-md) 0;
+ background: #ff010e5d;
+ color: #fff;
+ border: none;
+ border-radius: var(--radius-sm);
+ font-size: var(--font-size-lg);
+ font-weight: bold;
+ cursor: pointer;
+ margin-top: var(--space-sm);
+ transition: background 0.2s, color 0.2s;
+}
+
+.button-ava {
+ width: 100%;
+ padding: var(--space-md) 15px;
+ background: #ff010e5d;
+ color: #fff;
+ border: none;
+ border-radius: var(--radius-sm);
+ font-size: var(--font-size-lg);
+ display: flex;
+ gap: 10px;
+ font-weight: bold;
+ cursor: pointer;
+ transition: background 0.2s, color 0.2s;
+}
+
+.button-ava:hover {
+ background: #ff010e;
+ color: #fff;
+ transform: scale(1.03);
+}
+
+.btn-salvar-alteracoes:hover {
+ background: #ff010e;
+ color: #fff;
+ transform: scale(1.03);
+}
+
+.btn-desconectar {
+ width: 100%;
+ padding: var(--space-md) 0;
+ background: transparent;
+ color: #fff;
+ border: none;
+ border-radius: var(--radius-sm);
+ font-size: var(--font-size-lg);
+ font-weight: bold;
+ cursor: pointer;
+ margin-top: var(--space-sm);
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ gap: var(--space-sm);
+ transition: color 0.2s;
+}
+
+.btn-desconectar i {
+ font-size: 1.2em;
+}
+
+.btn-desconectar:hover {
+ color: var(--color-primary);
+ background: transparent;
+}

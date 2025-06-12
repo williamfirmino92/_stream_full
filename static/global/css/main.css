@@ -1,0 +1,78 @@
+/* ======================== */
+/* Nego ney NEgo ney! */
+
+/* ======================== */
+/*         IMPORTS          */
+
+/* @import url(footer.css); */
+@import url(navbar.css);
+
+@import url(layout.css);
+@import url(sidebar.css);
+@import url(principal.css);
+@import url(wallet.css);
+@import url(stats.css);
+@import url(latest.css);
+@import url(buttons.css);
+
+/* ======================== */
+/*      VARIÁVEIS ROOT      */
+/* ======================== */
+:root {
+    /* Paleta de Cores */
+    --color-primary: #E50A14;
+    animation: redPulse 3s infinite linear;
+
+    --color-text-main: #fff;
+    --color-text-secondary: #ccc;
+    --color-icon: #fff;
+    --color-bg-main: #1A1A1D;
+    --color-bg-component: #2C2C31;
+
+    /* Bordas */
+    --radius-sm: 8px;
+    --radius-md: 10px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+
+    /* Sombras */
+    --shadow-sm: 0 2px 8px rgba(0,0,0,0.10);
+    --shadow-md: 0 2px 8px rgba(0,0,0,0.15);
+    --shadow-lg: 0 2px 8px rgba(0,0,0,0.2);
+
+    /* Espaçamentos */
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 12px;
+    --space-lg: 16px;
+    --space-xl: 24px;
+    --space-xxl: 32px;
+    --space-xxd: 32px;
+    --space-xxxl: 40px;
+
+    /* Fontes */
+    --font-family-main: sans-serif;
+    --font-size-base: 16px;
+    --font-size-lg: 1.0rem;
+    --font-size-xl: 1.5rem;
+    --font-size-title: 1.2rem;
+    --font-size-icon: 28px;
+}
+
+/* ======================== */
+/*    RESET E BASE GERAL    */
+/* ======================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family-main);
+    background-image: url("../assets/images/Group1.jpg");
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    color: var(--color-text-main);
+}

@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StreamVibe - Login</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-black text-white font-sans">
+
+  <div class="flex flex-col lg:flex-row min-h-screen">
+
+    <!-- Painel Esquerdo -->
+    <div class="hidden lg:flex w-1/2 bg-cover bg-center relative flex-col justify-center px-16 py-10"
+      style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('movies-bg.jpg');">
+      <img src="{% static '/global/assets/images/logo-white.png' %}" alt="Logo StreamVibe" class="w-48 mb-8" />
+
+      <h1 class="text-4xl font-bold mb-6">Página de Login</h1>
+      <p class="text-lg text-gray-200 mb-8 max-w-xl leading-relaxed">
+        Para acessar sua conta e aproveitar todos os recursos e serviços especiais do nosso site,
+        faça login com suas informações pessoais. Se você ainda não tem uma conta, pode se cadastrar
+        e aproveitar nossos benefícios exclusivos.
+      </p>
+
+      <a href="{% url 'cadastrar' %}" class="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-full w-fit text-lg">
+        Página de Cadastro
+      </a>
+
+      <a href="{% url 'index' %}" class="absolute top-6 right-10 text-sm text-white hover:underline">
+        Voltar para a Página Inicial 🏠
+      </a>
+    </div>
+
+    <!-- Painel Direito -->
+    <div class="w-full lg:w-1/2 bg-black flex flex-col justify-center px-6 sm:px-12 lg:px-16 py-12 relative">
+
+      <!-- Botão Voltar no mobile -->
+      <a href="{% url 'index' %}" class="lg:hidden block mb-6 text-sm text-white text-center hover:underline">
+        Voltar para a Página Inicial 🏠
+      </a>
+
+      <form class="max-w-md mx-auto w-full" action="{% url 'login' %}" method="POST">
+        {% csrf_token %}
+        <h2 class="text-3xl font-semibold mb-8 text-center">Formulário de Login</h2>
+
+        <div class="mb-6">
+          {% for field in form.visible_fields %}
+            <label for="{{ field.id_for_label }}" class="block mb-2 text-sm">{{ field.label }}</label>
+            {{ field }}
+          {% endfor %}
+
+          {% for message in messages %}
+            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative my-3" role="alert">
+              <strong class="font-bold">Erro!</strong>
+              <span id="messages" class="block sm:inline">{{ message }}</span>
+            </div>
+          {% endfor %}
+
+          <div class="flex justify-between items-center mb-6 text-sm">
+            <label class="flex items-center">
+              <input type="checkbox" class="mr-2 accent-red-600 my-3" />
+              Lembrar-me
+            </label>
+            <a href="{% url 'esqueci' %}" class="text-blue-400 hover:underline my-3">Esqueceu sua senha?</a>
+          </div>
+
+          <button type="submit" class="bg-red-600 hover:bg-red-700 w-full py-3 rounded-full text-lg font-medium">
+            Entrar
+          </button>
+
+          <p class="mt-6 text-sm text-center">
+            Não tem uma conta?
+            <a href="{% url 'cadastrar' %}" class="text-red-600 hover:underline">Cadastre-se</a>
+          </p>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</body>
+
+</html>

@@ -1,0 +1,239 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StreamVibe</title>
+  <link rel="stylesheet" href="{% static '/global/css/style.css' %}">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+  <!-- Início do header -->
+  <header class="navbar">
+    <div class="logo">
+      <a href="/index.html">
+        <img src="{% static '/global/assets/images/logo-white.png' %}" alt="Logo da StreamBox">
+      </a>
+    </div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="{% url 'index' %}">Home</a></li>
+        <li><a href="{% url 'filmes' %}">Filmes</a></li>
+        <li><a href="{% url 'suporte' %}">Suporte</a></li>
+        <li><a href="{% url 'perfil' %}">Meu perfil</a></li>
+
+      </ul>
+    </nav>
+
+    <div class="nav-actions">
+      <input type="text" placeholder="Buscar..." class="search-input" />
+      <a href="{% url 'login' %}">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M18 7.5V10.5M18 10.5V13.5M18 10.5H21M18 10.5H15M12.75 6.375C12.75 8.23896 11.239 9.75 9.375 9.75C7.51104 9.75 6 8.23896 6 6.375C6 4.51104 7.51104 3 9.375 3C11.239 3 12.75 4.51104 12.75 6.375ZM3.00092 19.2343C3.00031 19.198 3 19.1615 3 19.125C3 15.6042 5.85418 12.75 9.375 12.75C12.8958 12.75 15.75 15.6042 15.75 19.125V19.1276C15.75 19.1632 15.7497 19.1988 15.7491 19.2343C13.8874 20.3552 11.7065 21 9.375 21C7.04353 21 4.86264 20.3552 3.00092 19.2343Z"
+            stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        </svg></a>
+      <a href="{% url 'logout' %}">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15 3H21V21H15" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" />
+          <path d="M10 17L15 12L10 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" />
+          <path d="M3 12H15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </a>
+    </div>
+  </header>
+
+  <!-- Início do conteúdo principal -->
+  <main>
+    
+    <!-- Assista agora   -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1 class="hero-title">O Mandaloriano</h1>
+        <p class="hero-description">Explore a galáxia com Din Djarin, um caçador de recompensas solitário nas regiões
+          mais distantes da galáxia, longe da autoridade da Nova República.</p>
+        <div class="hero-buttons">
+          <button class="btn-primary">▶ Assistir Agora</button>
+          <button class="btn-secondary">+ Adicionar à Lista</button>
+        </div>
+      </div>
+    </section>
+
+   <!-- Em alta -->
+    <section class="section trending">
+      <h2>Em Alta Agora</h2>
+      <div class="movie-grid">
+        <div class="movie-card">
+          <img src="{% static '/global/assets/images/series-banner.jpg' %}" alt="Card serie" />
+          <p>Avatar: The Way of Water</p>
+        </div>
+        <div class="movie-card">
+          <img src="{% static '/global/assets/images/series-banner.jpg' %}" alt="Card serie" />
+          <p>John Wick 4</p>
+        </div>
+        <div class="movie-card">
+          <img src="{% static '/global/assets/images/series-banner.jpg' %}" alt="Card serie" />
+          <p>Stranger Things</p>
+        </div>
+        <div class="movie-card">
+          <img src="{% static '/global/assets/images/series-banner.jpg' %}" alt="Card serie" />
+          <p>The Batman</p>
+        </div>
+      </div>
+    </section>
+       <!-- Em alta -->
+    <section class="section trending">
+      <h2>Em Alta Agora</h2>
+      <div class="movie-grid">
+        <div class="movie-card">
+          <img src="{% static '/global/assets/images/series-banner.jpg' %}" alt="Card serie" />
+          <p>Avatar: The Way of Water</p>
+        </div>
+        <div class="movie-card">
+          <img src="{% static '/global/assets/images/series-banner.jpg' %}" alt="Card serie" />
+          <p>John Wick 4</p>
+        </div>
+        <div class="movie-card">
+          <img src="{% static '/global/assets/images/series-banner.jpg' %}" alt="Card serie" />
+          <p>Stranger Things</p>
+        </div>
+        <div class="movie-card">
+          <img src="{% static '/global/assets/images/series-banner.jpg' %}" alt="Card serie" />
+          <p>The Batman</p>
+        </div>
+      </div>
+    </section>
+       <!-- Em alta -->
+    <section class="section trending">
+      <h2>Em Alta Agora</h2>
+      <div class="movie-grid">
+        <div class="movie-card">
+          <img src="{% static '/global/assets/images/series-banner.jpg' %}" alt="Card serie" />
+          <p>Avatar: The Way of Water</p>
+        </div>
+        <div class="movie-card">
+          <img src="{% static '/global/assets/images/series-banner.jpg' %}" alt="Card serie" />
+          <p>John Wick 4</p>
+        </div>
+        <div class="movie-card">
+          <img src="{% static '/global/assets/images/series-banner.jpg' %}" alt="Card serie" />
+          <p>Stranger Things</p>
+        </div>
+        <div class="movie-card">
+          <img src="{% static '/global/assets/images/series-banner.jpg' %}" alt="Card serie" />
+          <p>The Batman</p>
+        </div>
+      </div>
+    </section>
+
+
+    <iframe id="EmbedderContainer" src="https://embedder.net/e/movie?tmdb=574475" width="75%" height="500px" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
+
+  </main>
+  <!-- Início do footer -->
+  <footer>
+    <div class="footer">
+      <div class="footer-section">
+        <p class="section-title">Home</p>
+        <ul class="section-list">
+          <li>Categorias</li>
+          <li>Dispositivos</li>
+          <li>Preços</li>
+          <li>FAQ</li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <p class="section-title">Filmes</p>
+        <ul class="section-list">
+          <li>Gêneros</li>
+          <li>Em Alta</li>
+          <li>Lançamentos</li>
+          <li>Populares</li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <p class="section-title">Séries</p>
+        <ul class="section-list">
+          <li>Gêneros</li>
+          <li>Em Alta</li>
+          <li>Lançamentos</li>
+          <li>Populares</li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <p class="section-title">Suporte</p>
+        <ul class="section-list">
+          <li>Fale Conosco</li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <p class="section-title">Assinatura</p>
+        <ul class="section-list">
+          <li>Planos</li>
+          <li>Funcionalidades</li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <p class="section-title">Conecte-se Conosco</p>
+        <div class="social-icons">
+          <button class="social-btn">
+            <!-- Facebook -->
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M24 12C24 5.37 18.63 0 12 0S0 5.37 0 12c0 5.99 4.39 10.95 10.13 11.85v-8.39H7.08v-3.47h3.05V9.36c0-3.01 1.79-4.67 4.52-4.67 1.31 0 2.68.23 2.68.23v2.95h-1.51c-1.49 0-1.95.93-1.95 1.88v2.25h3.32l-.53 3.47h-2.79v8.39C19.61 22.95 24 17.99 24 12Z"
+                fill="white" />
+            </svg>
+          </button>
+          <button class="social-btn">
+            <!-- Twitter -->
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M7.55 21.75c9.05 0 14-7.5 14-14 0-.21 0-.42-.01-.63A10.06 10.06 0 0 0 24 4.56a9.82 9.82 0 0 1-2.83.78A4.93 4.93 0 0 0 23.34 2.6a9.86 9.86 0 0 1-3.13 1.2 4.92 4.92 0 0 0-8.38 4.48A13.95 13.95 0 0 1 1.67 3.15a4.92 4.92 0 0 0 1.52 6.57A4.91 4.91 0 0 1 .96 9.1v.06a4.93 4.93 0 0 0 3.95 4.82 4.93 4.93 0 0 1-2.22.08 4.93 4.93 0 0 0 4.6 3.42A9.87 9.87 0 0 1 0 19.54a13.94 13.94 0 0 0 7.55 2.21Z"
+                fill="white" />
+            </svg>
+          </button>
+          <button class="social-btn">
+            <!-- LinkedIn -->
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M22.22 0H1.77A1.77 1.77 0 0 0 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45A1.77 1.77 0 0 0 24 22.27V1.73A1.77 1.77 0 0 0 22.22 0ZM7.12 20.45H3.56V9h3.56v11.45ZM5.34 7.43A2.06 2.06 0 1 1 5.34 3.3a2.06 2.06 0 0 1 0 4.13ZM20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.83-3.04-1.83 0-2.11 1.43-2.11 2.93v5.68H9.36V9h3.42v1.56h.05c.47-.89 1.63-1.83 3.35-1.83 3.58 0 4.27 2.35 4.27 5.4v6.32Z"
+                fill="white" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>@2025 stream, Todos os direitos reservados.</p>
+      <ul class="footer-links">
+        <li>Termos de Uso</li>
+        <li>Política de Privacidade</li>
+        <li>Política de Cookies</li>
+      </ul>
+    </div>
+  </footer>
+</body>
+
+</html>
+
+
+
+
+<!-- <div class="informacoes">
+    <h3>Explore nossa ampla variedade de categorias </h3>
+    <p> Quer você esteja procurando uma comédia para fazer você rir, um
+      drama para fazer você pensar ou um documentário para aprender algo
+      novo</p>
+  </div> -->
