@@ -39,6 +39,12 @@ def filmes(request, filme_id):
         "filmes/filme_detalhe.html",
         {"filme": filme}
     )
+    
+def filmesdetalhes(request):
+    return render(
+        request,
+        'filmes/filmes_detalhes_premonicao.html',
+    )
 
 # view ref a opção de buscar filmes:
 # def buscar(request):

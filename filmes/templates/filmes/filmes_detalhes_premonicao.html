@@ -1,0 +1,329 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StreamVibe</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer>
+    function toggleMenu() {
+      const menu = document.getElementById("mobile-menu");
+      menu.classList.toggle("hidden");
+    }
+  </script>
+  <link rel="stylesheet" href="{% static '/global/css/style.css' %}"> 
+
+</head>
+    <!-- background-image: linear-gradient(rgb(0, 0, 0), rgba(0, 0, 0, 0.947));
+    position: sticky;
+    top: 0;
+    z-index: 10; -->
+<body>
+  <!-- Início do header -->
+  <header class="bg-black border-b border-gray-800" style="top: 0;  position: sticky; " >
+    <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+
+      <!-- Logo -->
+      <a href="{% url 'index' %}">
+        <img src="{% static '/global/assets/images/logo-white.png' %}" alt="Logo da StreamBox" class="w-36">
+      </a>
+
+      <!-- Botão Hamburguer - Mobile -->
+      <button class="lg:hidden text-white focus:outline-none" onclick="toggleMenu()">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+
+      <!-- Navegação Desktop -->
+      <nav class="hidden lg:flex space-x-6 items-center text-sm">
+        <a href="{% url 'index' %}" class="hover:text-red-500">Home</a>
+        <a href="{% url 'filmes' %}" class="hover:text-red-500">Filmes</a>
+        <a href="{% url 'suporte' %}" class="hover:text-red-500">Suporte</a>
+        <a href="{% url 'perfil' %}" class="hover:text-red-500">Meu perfil</a>
+        <input type="text" placeholder="Buscar..." class="search-input" />
+        <a href="{% url 'login' %}" class="text-white">
+          <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 7.5V10.5M18 10.5V13.5M18 10.5H21M18 10.5H15M12.75 6.375C12.75 8.23896 11.239 9.75 9.375 9.75C7.51104 9.75 6 8.23896 6 6.375C6 4.51104 7.51104 3 9.375 3C11.239 3 12.75 4.51104 12.75 6.375ZM3.00092 19.2343C3.00031 19.198 3 19.1615 3 19.125C3 15.6042 5.85418 12.75 9.375 12.75C12.8958 12.75 15.75 15.6042 15.75 19.125V19.1276C15.75 19.1632 15.7497 19.1988 15.7491 19.2343C13.8874 20.3552 11.7065 21 9.375 21C7.04353 21 4.86264 20.3552 3.00092 19.2343Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </a>
+        <a href="{% url 'logout' %}" class="text-white">
+          <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15 3H21V21H15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M10 17L15 12L10 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M3 12H15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </a>
+      </nav>
+    </div>
+
+    <!-- Navegação Mobile -->
+    <div id="mobile-menu" class="lg:hidden hidden px-6 pb-4">
+      <nav class="flex flex-col space-y-3 text-sm">
+        <a href="{% url 'index' %}" class="hover:text-red-500">Home</a>
+        <a href="{% url 'filmes' %}" class="hover:text-red-500">Filmes</a>
+        <a href="{% url 'suporte' %}" class="hover:text-red-500">Suporte</a>
+        <a href="{% url 'perfil' %}" class="hover:text-red-500">Meu perfil</a>
+        <input type="text" placeholder="Buscar..." class="search-input mt-2" />
+        <div class="flex gap-4 mt-3">
+          <a href="{% url 'login' %}" class="text-white">Login</a>
+          <a href="{% url 'logout' %}" class="text-white">Logout</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Início do conteúdo principal -->
+  <main>
+<!-- <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> -->
+  <!-- Início do conteúdo principal -->
+  <section class="relative">
+    <!-- <img src="img/filme.png" alt="Kantara" class="w-full max-h-[600px] object-cover"> -->
+    <iframe id="EmbedderContainer" src="https://embedder.net/e/movie?tmdb=55779" width="100%" height="600px" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent px-10 py-6">
+      <h1 class="text-3xl font-bold">Premonição 5</h1>
+      <p class="text-gray-300 mt-2 max-w-2xl">
+        Sam (Nicholas D'Agosto) tem um estranho pressentimento que as pessoas com quem trabalha e viaja com ele irão morrer num grave acidente. O pesadelo acaba acontecendo, mas graças a ele algumas conseguem se salvar do episódio, inclusive a sua namorada (Emma Bell). O que eles não contavam era que o destino de todos já estava traçado e a morte irá "caçar" um por um até que estejam definitivamente liquidados.
+      </p>
+      <div class="mt-4 flex gap-4">
+        <button class="bg-red-600 px-6 py-2 rounded-full">▶️ Assistir agora</button>
+        <button class="bg-gray-800 px-4 py-2 rounded-full">➕</button>
+        <button class="bg-gray-800 px-4 py-2 rounded-full">🔗</button>
+        <button class="bg-gray-800 px-4 py-2 rounded-full">⚙️</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Conteúdo principal -->
+  <main class="px-10 py-16 grid grid-cols-1 lg:grid-cols-3 gap-10">
+
+    <!-- Coluna da esquerda -->
+    <div class="lg:col-span-2 space-y-8">
+      <!-- Descrição -->
+      <section>
+        <h2 class="text-lg font-semibold mb-2">Descrição</h2>
+        <p class="text-gray-400 text-sm">
+          Um jovem destemido entra em conflito com um oficial florestal inabalável em uma vila do sul da Índia, onde a espiritualidade, o destino e o folclore dominam.
+        </p>
+      </section>
+
+      <!-- Elenco -->
+      <section>
+        <h2 class="text-lg font-semibold mb-4">Elenco</h2>
+        <div class="flex items-center space-x-4 overflow-x-auto pb-2">
+          <img src="img/atriz.png" alt="" class="w-14 h-14 rounded-full object-cover">
+          <img src="img/atriz.png" alt="" class="w-14 h-14 rounded-full object-cover">
+          <img src="img/atriz.png" alt="" class="w-14 h-14 rounded-full object-cover">
+          <img src="img/atriz.png" alt="" class="w-14 h-14 rounded-full object-cover">
+          <img src="img/atriz.png" alt="" class="w-14 h-14 rounded-full object-cover">
+          <!-- <img src="cast2.jpg" alt="" class="w-14 h-14 rounded-full object-cover">
+          <img src="cast3.jpg" alt="" class="w-14 h-14 rounded-full object-cover">
+          <img src="cast4.jpg" alt="" class="w-14 h-14 rounded-full object-cover">
+          <img src="cast5.jpg" alt="" class="w-14 h-14 rounded-full object-cover"> -->
+          <!-- ... -->
+        </div>
+      </section>
+
+      <!-- Avaliações -->
+      <section>
+        <div class="flex justify-between items-center mb-4">
+          <h2 class="text-lg font-semibold">Avaliações</h2>
+          <button class="bg-red-600 px-4 py-1 rounded-full text-sm">+ Escreva sua avaliação</button>
+        </div>
+        <div class="space-y-4">
+          <!-- Avaliação 1 -->
+          <div class="bg-gray-800 p-4 rounded-lg">
+            <p class="font-semibold">Aniket Roy <span class="text-gray-400 text-sm">• da Índia</span></p>
+            <div class="flex items-center text-yellow-400 mb-2">★★★★★ 4.5</div>
+            <p class="text-gray-300 text-sm">Este filme foi recomendado por uma amiga muito querida. Fui ao cinema sozinha, mas estava lotado e não consegui assistir.</p>
+          </div>
+          <!-- Avaliação 2 -->
+          <div class="bg-gray-800 p-4 rounded-lg">
+            <p class="font-semibold">Swaraj <span class="text-gray-400 text-sm">• da Índia</span></p>
+            <div class="flex items-center text-yellow-400 mb-2">★★★★★ 5.0</div>
+            <p class="text-gray-300 text-sm">Um rei promete sua terra aos locais em troca de uma pedra sagrada (Panjurli). História envolvente e espiritual.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Coluna da direita -->
+    <aside class="space-y-6 text-sm">
+      <div>
+        <h3 class="font-semibold text-gray-300">Ano de lançamento</h3>
+        <p class="text-white">2022</p>
+      </div>
+      <div>
+        <h3 class="font-semibold text-gray-300">Idiomas disponíveis</h3>
+        <div class="flex flex-wrap gap-2 mt-2">
+          <span class="bg-gray-700 px-2 py-1 rounded">Inglês</span>
+          <span class="bg-gray-700 px-2 py-1 rounded">Hindi</span>
+          <span class="bg-gray-700 px-2 py-1 rounded">Tâmil</span>
+          <span class="bg-gray-700 px-2 py-1 rounded">Télugo</span>
+          <span class="bg-gray-700 px-2 py-1 rounded">Kannada</span>
+        </div>
+      </div>
+      <div>
+        <h3 class="font-semibold text-gray-300">Avaliações</h3>
+        <p><strong>IMDb:</strong> ★ 4.5</p>
+        <p><strong>StreamVibe:</strong> ★ 4.0</p>
+      </div>
+      <div>
+        <h3 class="font-semibold text-gray-300">Gêneros</h3>
+        <p>Ação, Aventura</p>
+      </div>
+      <div>
+        <h3 class="font-semibold text-gray-300">Diretor</h3>
+        <p>Rishab Shetty</p>
+      </div>
+      <div>
+        <h3 class="font-semibold text-gray-300">Trilha sonora</h3>
+        <p>B. Ajaneesh Loknath</p>
+      </div>
+    </aside>
+
+  </main>
+
+      <!-- Recomendações -->
+    <section class="section recommended">
+      <h2> Recomendado Para Você</h2>
+      <div class="movie-grid">
+        <div class="movie-card">
+          <img src="img/series-banner.jpg" alt="Movie Title" />
+          <p>Dune</p>
+        </div>
+        <div class="movie-card">
+          <img src="img/series-banner.jpg" alt="Movie Title" />
+          <p>Breaking Bad</p>
+        </div>
+        <div class="movie-card">
+          <img src="img/series-banner.jpg" alt="Movie Title" />
+          <p>Interstellar</p>
+        </div>
+        <div class="movie-card">
+          <img src="img/series-banner.jpg" alt="Movie Title" />
+          <p>Peaky Blinders</p>
+        </div>
+      </div>
+    </section>
+
+        <!-- Recomendações -->
+    <section class="section recommended">
+      <h2> Recomendado Para Você</h2>
+      <div class="movie-grid">
+        <div class="movie-card">
+          <img src="img/series-banner.jpg" alt="Movie Title" />
+          <p>Dune</p>
+        </div>
+        <div class="movie-card">
+          <img src="img/series-banner.jpg" alt="Movie Title" />
+          <p>Breaking Bad</p>
+        </div>
+        <div class="movie-card">
+          <img src="img/series-banner.jpg" alt="Movie Title" />
+          <p>Interstellar</p>
+        </div>
+        <div class="movie-card">
+          <img src="img/series-banner.jpg" alt="Movie Title" />
+          <p>Peaky Blinders</p>
+        </div>
+      </div>
+    </section>
+
+  <!-- Início do footer -->
+  <footer>
+    <div class="footer">
+      <div class="footer-section">
+        <p class="section-title">Home</p>
+        <ul class="section-list">
+          <li>Categorias</li>
+          <li>Dispositivos</li>
+          <li>Preços</li>
+          <li>FAQ</li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <p class="section-title">Filmes</p>
+        <ul class="section-list">
+          <li>Gêneros</li>
+          <li>Em Alta</li>
+          <li>Lançamentos</li>
+          <li>Populares</li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <p class="section-title">Séries</p>
+        <ul class="section-list">
+          <li>Gêneros</li>
+          <li>Em Alta</li>
+          <li>Lançamentos</li>
+          <li>Populares</li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <p class="section-title">Suporte</p>
+        <ul class="section-list">
+          <li>Fale Conosco</li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <p class="section-title">Assinatura</p>
+        <ul class="section-list">
+          <li>Planos</li>
+          <li>Funcionalidades</li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <p class="section-title">Conecte-se Conosco</p>
+        <div class="social-icons">
+          <button class="social-btn">
+            <!-- Facebook -->
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M24 12C24 5.37 18.63 0 12 0S0 5.37 0 12c0 5.99 4.39 10.95 10.13 11.85v-8.39H7.08v-3.47h3.05V9.36c0-3.01 1.79-4.67 4.52-4.67 1.31 0 2.68.23 2.68.23v2.95h-1.51c-1.49 0-1.95.93-1.95 1.88v2.25h3.32l-.53 3.47h-2.79v8.39C19.61 22.95 24 17.99 24 12Z"
+                fill="white" />
+            </svg>
+          </button>
+          <button class="social-btn">
+            <!-- Twitter -->
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M7.55 21.75c9.05 0 14-7.5 14-14 0-.21 0-.42-.01-.63A10.06 10.06 0 0 0 24 4.56a9.82 9.82 0 0 1-2.83.78A4.93 4.93 0 0 0 23.34 2.6a9.86 9.86 0 0 1-3.13 1.2 4.92 4.92 0 0 0-8.38 4.48A13.95 13.95 0 0 1 1.67 3.15a4.92 4.92 0 0 0 1.52 6.57A4.91 4.91 0 0 1 .96 9.1v.06a4.93 4.93 0 0 0 3.95 4.82 4.93 4.93 0 0 1-2.22.08 4.93 4.93 0 0 0 4.6 3.42A9.87 9.87 0 0 1 0 19.54a13.94 13.94 0 0 0 7.55 2.21Z"
+                fill="white" />
+            </svg>
+          </button>
+          <button class="social-btn">
+            <!-- LinkedIn -->
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M22.22 0H1.77A1.77 1.77 0 0 0 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45A1.77 1.77 0 0 0 24 22.27V1.73A1.77 1.77 0 0 0 22.22 0ZM7.12 20.45H3.56V9h3.56v11.45ZM5.34 7.43A2.06 2.06 0 1 1 5.34 3.3a2.06 2.06 0 0 1 0 4.13ZM20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.83-3.04-1.83 0-2.11 1.43-2.11 2.93v5.68H9.36V9h3.42v1.56h.05c.47-.89 1.63-1.83 3.35-1.83 3.58 0 4.27 2.35 4.27 5.4v6.32Z"
+                fill="white" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>@2025 stream, Todos os direitos reservados.</p>
+      <ul class="footer-links">
+        <li>Termos de Uso</li>
+        <li>Política de Privacidade</li>
+        <li>Política de Cookies</li>
+      </ul>
+    </div>
+  </footer>
+</body>
+
+</html>
+
+
+
+
