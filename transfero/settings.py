@@ -12,7 +12,7 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'fallback-secret-key')
 DEBUG = False
 
 # Domínios permitidos (substitua pelo seu domínio no Render)
-ALLOWED_HOSTS = ['tostreamvibe.onrender.com']
+ALLOWED_HOSTS = ['stream-full.onrender.com/']
 
 # Aplicações instaladas
 INSTALLED_APPS = [
