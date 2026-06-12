@@ -23,3 +23,6 @@ if settings.DEBUG:
 
 
 # Terminar o exercício de ontem e entregar por whatsapp até as 14:00-
+
+
+## teste
